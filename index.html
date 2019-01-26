@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" type="image/x-icon"  href="https://raw.githubusercontent.com/gustavovargas/visualizacionafi/master/images/logoAFI.ico">
+
+	<script type="text/javascript" src="https://d3js.org/d3.v5.js"></script>
   </head>
 
   <style>
@@ -101,10 +103,12 @@
     Entonces Etiopía, país vecino, decidió invadir el país para anular a los islamistas, con el apoyo de EEUU, pero nunca llegó a tomar el control total, reproduciéndose una y otra vez continuas batallas en las calles. Más de un millón y medio de personas del sur del país, especialmente de zonas cercanas a la capital, huyeron como refugiados a otros países <b>[poner gráfico de refugiados en otros países Fuente: UNHCR 2009</b>.
      </p>
 
-    <!-- imagen primera -->
+    <!-- MAPA SOMALIA -->
     <div class="w3-row">
       <div class="w3-col m6 w3-center w3-padding-large">
-        <img src="images/map_somalia.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Mapa de Somalia" width="500" height="333">
+		<svg id="container" height="400" width="400", style="border: solid 1px black">
+			<g id="mapasomalia" style="transform:translate(-1170px,160px)"></g>
+		</svg>
         <p><b><i class="fa fa-user w3-margin-right"></i>Principales ciudades de Somalia</b></p><br>
       </div>
 
@@ -187,7 +191,6 @@
         <img src="/w3images/p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
       </div>
 
-      <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
     </div>
   </div>
 
@@ -200,14 +203,6 @@
     </div>
     <!-- <p>Aquí podría poner un texto si fuese necesario</p> -->
   </div>
-
-  <!-- Third Parallax Image with Conclusiones Text -->
-  <div class="bgimg-3 w3-display-container w3-opacity-min">
-    <div class="w3-display-middle">
-       <span class="w3-xxlarge w3-text-white w3-wide">AUTOR</span>
-    </div>
-  </div>
-
 
   <!-- CONTAINER DE BIBLIOGRAFÍA) -->
   <div class="w3-content w3-container w3-padding-64" id="bibliografia">
@@ -231,6 +226,13 @@
       <p class="w3-content"><i class="fa fa-book"></i> <a href="https://www.orfonline.org/research/somalia-a-failed-state/" target="_blank"">Coyne, C. & Leeson, P. (2010). Somalia: Understanding feasible institutions. En <i>Somalia: Economic, Political and Social Issues</i> (Nova Publishers), Elias P. Hoffmann ed., pp. 61-67.</a></p>
 
       
+  </div>
+
+  <!-- Third Parallax Image with Conclusiones Text -->
+  <div class="bgimg-3 w3-display-container w3-opacity-min">
+    <div class="w3-display-middle">
+       <span class="w3-xxlarge w3-text-white w3-wide">AUTOR</span>
+    </div>
   </div>
 
   <!-- Container del autor) -->
@@ -293,6 +295,33 @@
       }
   }
   </script>
+
+ <script type="text/javascript">
+	let mapa = d3.select("#mapasomalia")
+	d3.json("json/somaliamap2.geojson").then(showData)
+
+	function showData(mapInfo){
+		let bodyHeight = 350
+		let bodyWidth = 350
+
+		let projection = d3.geoMercator()  //geoNaturalEarth1() geoMercator()
+			.scale(1500)
+			.translate([bodyWidth/2,bodyHeight/2])
+
+		let path = d3.geoPath()
+			.projection(projection)
+
+		console.log(mapInfo)
+		mapa.selectAll("path")
+			.data(mapInfo.features)
+			.enter()
+			.append("path")
+			.attr("d",d=>path(d))
+			.attr("stroke","#999")
+			.attr("fill","#eee")
+	}
+
+</script>
 
   </body>
 </html>
