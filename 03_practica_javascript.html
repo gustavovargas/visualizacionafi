@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	const KG_PER_POUND = 0.45
+	const METER_PER_INCH = 0.0254
+
+	let clients = [
+		{
+			Name : "John",
+			Weight : 196,
+			Height : 70
+		},
+		{
+			Name : "Jane",
+			Weight : 186,
+			Height : 80
+		},
+		{
+			Name : "James",
+			Weight : 206,
+			Height : 70
+		}
+	]
+
+	function getBMI(client) {
+		let weightInKg = client.Weight * KG_PER_POUND;
+		let heightInMeter = client.Height * METER_PER_INCH;
+
+		let BMI = weightInKg / heightInMeter / heightInMeter
+		return BMI
+	}
+
+	for(let i=0; i< clients.length; i++){
+		let client = clients[i];
+		let bmi = getBMI(client)
+		if(bmi > 25){
+		document.write(client.Name + ": "+ bmi + "</br>")
+		}
+	}
+
+</script>
+</html>
