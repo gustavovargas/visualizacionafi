@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="shortcut icon" type="image/x-icon"  href="https://raw.githubusercontent.com/gustavovargas/visualizacionafi/master/images/logoAFI.ico">
 
 	<script type="text/javascript" src="https://d3js.org/d3.v5.js"></script>
@@ -111,9 +113,9 @@
   <!-- CONTAINER DE Breve historia de Somalia -->
   <div class="w3-content w3-container w3-padding-64" id="historia">
     <h3 class="w3-center">BREVE HISTORIA DE SOMALIA</h3>
-    <p class="w3-center"><em>Somalia estuvo sin gobierno desde la caída del dictador Siad Barre el 26 de Enero de 1991 hasta la entrada de la ONU en 2015. ¿Qué consecuencias podemos extraer de 20 años de inestabilidad?</em></p>
-    <p>Después de la caída de Barre, los 90 se caracterizaron por continuas disputas entre los Señores de la Guerra y milicias de diferentes clanes. Esto llevo a un hambre generalizado, y la ONU y EEUU intervinieron antes de que fuese a peor. En 2006 la <a href="https://es.wikipedia.org/wiki/Uni%C3%B3n_de_Tribunales_Isl%C3%A1micos" target="_blank">Unión de Tribunales Islámicos</a>  tomó el control de la capital, Mogadishu.
-    Entonces Etiopía, país vecino, decidió invadir el país para anular a los islamistas, con el apoyo de EEUU, pero nunca llegó a tomar el control total, reproduciéndose una y otra vez continuas batallas en las calles. Más de un millón y medio de personas del sur del país, especialmente de zonas cercanas a la capital, huyeron como refugiados a otros países <b>[poner gráfico de refugiados en otros países Fuente: UNHCR 2009</b>.
+    <p class="w3-center"><em>Somalia estuvo sin gobierno desde la caída del dictador Siad Barre el 26 de Enero de 1991 hasta la formación de un nuevo gobierno en 2012. ¿Qué consecuencias podemos extraer de 20 años de inestabilidad?</em></p>
+    <p>Somalia es un pequeño país del cuerno de África, con aproximadamente unos 11 millones de habitantes. Sin embargo, no ha sido nunca un país tranquilo. Después de la Segunda Guerra Mundial, los protectorados italianos y británicos se unieron y proclamaron su independencia en 1960, formando un país democrático. Sin embargo, ocho años después, el presidente sería asesinado y tomaría su lugar el dictador Mohamed Siad Barre. El gobierno de Barre buscaba armonizar el marxismo e islamismo, por lo que tuvo el apoyo de la URSS. Sin embargo, Barre decidió a conquistar al vecino Etiopía, y eso hizo que los soviéticos se pusiesen en su contra. Repelido el ataque, el gobierno de Barre quedó fuertemente tocado. Fuertes disturbios entre clanes y el surgimiento de numerosos movimientos que buscaban, por la fuerza, acabar con la dictadura, hicieron que en 1991 acabase el gobierno de Barre, pero tampoco permitió la formación de un nuevo Estado. Los años 90 se caracterizaron por continuas disputas violentas entre aquellos grupos. Esto llevo a un hambre generalizado, y la ONU y EEUU intervinieron antes de que fuese a peor. En 2006 la <a href="https://es.wikipedia.org/wiki/Uni%C3%B3n_de_Tribunales_Isl%C3%A1micos" target="_blank">Unión de Tribunales Islámicos</a>  tomó el control de la capital, Mogadishu.
+    Entonces Etiopía, con el apoyo de Estado Unidos, decidió invadir el país para anular a los islamistas, pero nunca llegó a tomar el control total, reproduciéndose una y otra vez continuas batallas en las calles. Más de un millón y medio de personas del sur del país, especialmente de zonas cercanas a la capital, huyeron como refugiados a otros países <b>[poner gráfico de refugiados en otros países Fuente: UNHCR 2009</b>.
      </p>
   </div>
   
@@ -126,12 +128,12 @@
       
       </g>
   	</svg>
-    <p><b><i class="fa fa-user w3-margin-right"></i>Principales ciudades de Somalia</b></p><br>
   </div>
 
-  <!-- Hide this text on small devices -->
   <div class="w3-content">
-    <p>El norte, en cambio, ha tenido una relativa paz, especialmente la zona que antes era británica, Somaliland. Aunque su independencia no es internacionalmente reconocida, en 2010 tuvieron sus primeras elecciones y transferencia pacífica de poder, algo raro en África. Al lado de Somalia tenemos la provincia de Puntland, que si bien no quiere la independencia, está tomada por piratas, que han sido conocidos por secuestrar y extorsionar barcos que pasaban a oriente medio.</p>
+    <p>El norte, en cambio, ha tenido una relativa paz, especialmente la zona que antes era británica, Somaliland. En 1991, al caer Barre, se proclamaron independientes, aunque su independencia ha sido internacionalmente reconocida. En 2010 tuvieron sus primeras elecciones y una transferencia pacífica de poder, algo raro en África.
+
+    Al lado de Somaliland tenemos la región de de Puntland, que si bien no quiere la independencia, también formó un gobierno paralelo. Esta región está tomada por piratas, que han sido conocidos por secuestrar y extorsionar barcos que pasaban a oriente medio.</p>
     
     <p>A pesar de todo esto, y aunque parezca increíble, el nivel de vida ha ido aumentando lentamente. Es verdad que Somalia sigue siendo uno de los países más pobres de África, pero su población se las ha ingeniado para sobrevivir sin un Estado. El PIB de Somalia y la esperanza de vida han crecido de manera sostenida en estos últimos veinte años, y su gente supo frenar el avance de epidemias como el sida, cosa que países vecinos, con sus Estados, no supieron hacer frente. Esta mejora, en parte, también se debe a las ayudas prestadas por agencias internacionales. <b>[añadir gráfico de ayudas de comida Fueten WFP 2009]</b></p>
 
@@ -140,12 +142,21 @@
     </div>
   </div>
 
+  <!-- BOTONES -->
+  <div>
+    <button onclick="changeChart('poblacion')">Poblacion</button>
+    <button onclick="changeChart('mortalidad')">Mortalidad</button>
+    <button onclick="changeChart()">Esperanza de vida</button>
+  </div>
 
-    <!-- linechart -->
+  <!-- linechart -->
   <div class="w3-center w3-padding-large">
     <svg id="svg2" height="350" width="600", style="border: solid 1px black">
       <g id="linechart1" style="transform:translate(80px,60px)"></g>
+      <div class="legend3"></div>
     </svg>
+    <div id="#leyenda" class="legend4">
+    </div>
     <p><b><i class="fa fa-user w3-margin-right"></i>Principales ciudades de Somalia</b></p><br>
   </div>
 
@@ -280,6 +291,8 @@
     </div>
   </div>
 
+
+
   <!-- Pié de página -->
   <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
     <a href="#inicio" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Volver al inicio</a>
@@ -369,44 +382,64 @@
   </script>
 
 
-  <script type="text/javascript">
+  <script>
     let linechart = d3.select("#linechart1")
-    d3.csv("data/somalia.csv").then(showChart)
+    let valor = "mortalidad"
+    d3.csv("data/data.csv").then(showChart)
 
     function showChart(data){
       
       let bodyHeight = 200
       let bodyWidth = 400
 
+      legendVals = d3.set(data.map( function(d) { return d.pais } ) ).values()
+      var color = d3.scaleOrdinal(d3.schemeCategory10)
+
+      var legendVals1 = d3.scaleOrdinal()
+        .domain(legendVals)
+        .range(["#619cff", "#f8766d", "#00ba38"]);
+      
       data = data.map(d => ({
-        fecha: +d.ano,
-        poblacion: +d.poblacion
+        pais: d.pais,
+        ano: +d.ano,
+        value: +d[valor]
       }))
 
-      let maxValue = d3.max(data,d=>+d.poblacion)
+      data_som = data.filter(function(d){return d.pais == "Somalia";})
+      data_eti = data.filter(function(d){return d.pais == "Ethiopia";})      
+      data_ken = data.filter(function(d){return d.pais == "Kenya";})
+
+
+
+      let maxValue = d3.max(data,d=>+d.value)
 
       let yScale = d3.scaleLinear()
         .range([bodyHeight,0])
         .domain([0,maxValue]);
 
       linechart.append("g")
-        .call(d3.axisLeft(yScale))
+        .call(d3.axisLeft(yScale)
+          .ticks(4)
+          .tickFormat(d3.format("")))
       
       let xScale = d3.scaleLinear()
-        .domain(d3.extent(data,d=>d.fecha))
+        .domain(d3.extent(data,d=>d.ano))
         .range([0,bodyWidth]);
 
       linechart.append("g")
         .attr("transform","translate(0, "+bodyHeight+")")
-        .call(d3.axisBottom(xScale))
+        .call(d3.axisBottom(xScale)
+          .tickFormat(d3.format("")))
+        .selectAll("text")
+          .attr("transform", "translate(-7,8) rotate(-35)")
 
       valueline = d3.line()
-        .x(d => xScale(d.fecha))
-        .y(d => yScale(+d.poblacion))
-        .defined(d=> !!+d.poblacion)
+        .x(d => xScale(d.ano))
+        .y(d => yScale(+d.value))
+        .defined(d=> !!+d.value)
 
       linechart.append("path")
-        .datum(data)
+        .datum(data_som)
         .attr("d",valueline)
         .attr("class","line")
         .attr("fill", "none")
@@ -415,17 +448,156 @@
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
 
+      linechart.append("path")
+        .datum(data_eti)
+        .attr("d",valueline)
+        .attr("class","line")
+        .attr("fill", "none")
+        .attr("stroke", "#f8766d")
+        .attr("stroke-width", 1.5)
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+
+      linechart.append("path")
+        .datum(data_ken)
+        .attr("d",valueline)
+        .attr("class","line")
+        .attr("fill", "none")
+        .attr("stroke", "#00ba38")
+        .attr("stroke-width", 1.5)
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("data-legend","Kenia")
+
       linechart.selectAll("dot")
-        .data(data)
+        .data(data_som)
         .enter()
         .append("circle")
         .attr("class","dot")
         .attr("fill", "#619cff")
         .attr("stroke", "#619cff")
-        .attr("cx", function(d){ return xScale(d.fecha)})
-        .attr("cy", function(d){ return yScale(d.poblacion)})
+        .attr("cx", function(d){ return xScale(d.ano)})
+        .attr("cy", function(d){ return yScale(d.value)})
         .attr("r",3.5)
+
+      linechart.selectAll("dot")
+        .data(data_eti)
+        .enter()
+        .append("circle")
+        .attr("class","dot")
+        .attr("fill", "#f8766d")
+        .attr("stroke", "#f8766d")
+        .attr("cx", function(d){ return xScale(d.ano)})
+        .attr("cy", function(d){ return yScale(d.value)})
+        .attr("r",3.5)
+
+      linechart.selectAll("dot")
+        .data(data_ken)
+        .enter()
+        .append("circle")
+        .attr("class","dot")
+        .attr("fill", "#00ba38")
+        .attr("stroke", "#00ba38")
+        .attr("cx", function(d){ return xScale(d.ano)})
+        .attr("cy", function(d){ return yScale(d.value)})
+        .attr("r",3.5)
+
+      linechart.exit().transition().remove()
+
+
+      // LEYENDA DEL LINECHART
+      var svgLegned3 = d3.select('#linechart1').append("svg")
+        .attr("width", d3.select("#svg2").attr("width"))
+        .attr("height", d3.select("#svg2").attr("height"))
+        .attr("transform", "translate(0,10)")
+
+      var legend3 = svgLegned3.selectAll('.legend3')
+        .data(legendVals1.domain())
+        .enter().append('g')
+        .attr("class", "legends3")
+        .attr("transform", function (d, i) {
+            {
+            return "translate(430," + (i * 20 + 70) + ")"
+            }
+        })
+        
+      legend3.append('rect')
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", 10)
+        .attr("height", 10)
+        .style("fill", function (d, i) {
+            lista = ["#619cff", "#f8766d", "#00ba38"]
+            return lista[i]
+        })
+      
+      legend3.append('text')
+        .attr("x", 20)
+        .attr("y", 10)
+        .text(function (d, i) {
+            return d
+        })
+        .attr("class", "textselected")
+        .style("text-anchor", "start")
+        .style("font-size", 10)
+
+      svgLegned3.select("g")
+        .append("text")
+        .attr("x","0")
+        .attr("y","-10")
+        .text("País")
+        .attr("font-size","12px")
+
+      // TITULO DEL LINECHART, EJES Y PIE
+
+      var svgTitulo = d3.select('#svg2').append("svg")
+        .attr("width", d3.select("#svg2").attr("width"))
+        .attr("height", d3.select("#svg2").attr("height"))
+        .attr("transform", "translate(0,10)")
+
+      svgTitulo.append("g")
+        .append("text")
+        .attr("x","80")
+        .attr("y","25")
+        .text("Población")
+        .attr("font-size","20px")
+
+      svgTitulo.append("g")
+        .append("text")
+        .attr("x","80")
+        .attr("y","50")
+        .text("Millones de personas")
+        .attr("font-size","15px")
+
+      svgTitulo.append("g")
+        .append("text")
+        .attr("x","355")
+        .attr("y","330")
+        .text("Fuente: World Bank Data")
+        .attr("font-size","12px")
+
+      svgTitulo.append("g")
+        .append("text")
+        .attr("x","30")
+        .attr("y","190")
+        .text("Población en millones")
+        .attr("font-size","13px")
+        .attr("transform","translate(-150,260) rotate(-90)")
+
+      svgTitulo.append("g")
+        .append("text")
+        .attr("x","280")
+        .attr("y","310")
+        .text("año")
+        .attr("font-size","13px")
     }
+          
+    function changeChart(variable){
+      let valor = variable;
+      d3.csv("data/data.csv").then(showChart)
+    }
+
+
   </script>
   </body>
 </html>
