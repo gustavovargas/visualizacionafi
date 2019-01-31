@@ -11,58 +11,58 @@
 
     <link rel="shortcut icon" type="image/x-icon"  href="https://raw.githubusercontent.com/gustavovargas/visualizacionafi/master/images/logoAFI.ico">
 
-	<script type="text/javascript" src="https://d3js.org/d3.v5.js"></script>
-<!--   <script type="text/javascript" src="js/d3/d3.min.js"></script>
- -->  </head>
+	 <script type="text/javascript" src="https://d3js.org/d3.v5.js"></script>
+    <!--   <script type="text/javascript" src="js/d3/d3.min.js"></script>--> 
+  </head>
 
   <style>
-  body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-  body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-  }
-  a {text-decoration: none;}
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+    body, html {
+      height: 100%;
+      color: #777;
+      line-height: 1.8;
+    }
+    a {text-decoration: none;}
 
-   /*Efector Parallax */
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+    /*Efector Parallax */
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-  /* Primera imagen / PORTADA      OJO difuminar más con photoshop antes de enviarlo*/
-  .bgimg-1 {
-    background-image: url('images/portada.png');
-    min-height: 100%;
-  }
+    /* Primera imagen / PORTADA      OJO difuminar más con photoshop antes de enviarlo*/
+    .bgimg-1 {
+      background-image: url('images/portada.png');
+      min-height: 100%;
+    }
 
-  /* Segunda imagen */
-  .bgimg-2 {
-    background-image: url("images/niños.jpg");
-    min-height: 400px;
-  }
+    /* Segunda imagen */
+    .bgimg-2 {
+      background-image: url("images/niños.jpg");
+      min-height: 400px;
+    }
 
-  /* Tercera imagen */
-  .bgimg-3 {
-    background-image: url("images/soldiers.jpg");
-    min-height: 400px;
-  }
+    /* Tercera imagen */
+    .bgimg-3 {
+      background-image: url("images/soldiers.jpg");
+      min-height: 400px;
+    }
 
-  .w3-wide {letter-spacing: 10px;}
-  .w3-hover-opacity {cursor: pointer;}
+    .w3-wide {letter-spacing: 10px;}
+    .w3-hover-opacity {cursor: pointer;}
 
-  /* quitamos el efector parallax en móviles y tablets */
-  @media only screen and (max-device-width: 1600px) {
+    /* quitamos el efector parallax en móviles y tablets */
+    @media only screen and (max-device-width: 1600px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
       background-attachment: scroll;
       min-height: 400px;
+      }
     }
-  }
 
-  /*Estilo para el tooltip*/
-  #tooltip{
+    /*Estilo para el tooltip del mapa*/
+    #tooltip{
       padding: .5em;
       position: absolute;
       display: none;
@@ -71,12 +71,12 @@
       text-shadow: #f5f5f5 0 1px 0;
       border-radius: 2px; 
       box-shadow: 0px 0px 2px 0px #a6a6a6;
-
-  }
+    }
   </style>
-  <body>
 
-  <!-- https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm#portfolio-->
+<body>
+
+  <!-- Basado en el template de https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm#portfolio-->
 
   <!-- BARRA DEL NAVEGADOR DE ARRIBA -->
   <div class="w3-top">
@@ -142,26 +142,6 @@
     </div>
   </div>
 
-  <!-- BOTONES -->
-  <div>
-    <button onclick="changeChart('poblacion')">Poblacion</button>
-    <button onclick="changeChart('mortalidad')">Mortalidad</button>
-    <button onclick="changeChart()">Esperanza de vida</button>
-  </div>
-
-  <!-- linechart -->
-  <div class="w3-center w3-padding-large">
-    <svg id="svg2" height="350" width="600", style="border: solid 1px black">
-      <g id="linechart1" style="transform:translate(80px,60px)"></g>
-      <div class="legend3"></div>
-    </svg>
-    <div id="#leyenda" class="legend4">
-    </div>
-    <p><b><i class="fa fa-user w3-margin-right"></i>Principales ciudades de Somalia</b></p><br>
-  </div>
-
-
-
   <!-- BARRA HORIZONTAL con números dentro -->
   <div class="w3-row w3-center w3-dark-grey w3-padding-16">
     <div class="w3-quarter w3-section">
@@ -194,43 +174,32 @@
     <h3 class="w3-center">¿FUE BUENA LA ANARQUÍA?</h3>
     <p class="w3-center"><em>Con estos ocho indicadores intentaremos entender cómo evolucióno la vida en esta zona del cuerno de África.<br> Haz click en ellos para ampliarlos </em></p><br>
 
-    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-    <div class="w3-row-padding w3-center">
-      <div class="w3-col m3">
-        <img src="images/fertilidad.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fertilidad">
-      </div>
+    <!-- BOTONES -->
+    <div class="w3-center">
+      <button class="w3-button" id="bot_poblacion">Poblacion</button>
+      <button class="w3-button w3-light-grey" id="bot_mortalidad">Mortalidad</button>
+      <button class="w3-button" id="bot_esperanza_vida">Esperanza de vida</button>
+      <button class="w3-button w3-light-grey" id="bot_fertilidad">Fertilidad</button> <br>
+      <button class="w3-button w3-light-grey" id="bot_ados_fertilidad">Fertilidad en adolescentes</button>
+      <button class="w3-button" id="bot_sida">VIH</button>
+      <button class="w3-button w3-light-grey" id="bot_forestal">Área forestal</button><br>
+      <button class="w3-button w3-light-grey" id="bot_movil">Acceso a telefonía móvil</button> 
+      <button class="w3-button" id="bot_inversion">Inversión extranjera</button>
+      <button class="w3-button w3-light-grey" id="bot_ayudas">Ayuda externa</button>
+    </div>
 
-      <div class="w3-col m3">
-        <img src="images/fertilidad_adolescentes.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fertilidad en adolescentes">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/mortalidad.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Mortalidad">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/sida.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Número de seropositivos">
+    <!-- linechart -->
+    <div class="w3-center w3-padding-large">
+      <svg id="svg2" height="350" width="600">
+        <g id="linechart" style="transform:translate(80px,60px)"></g>
+        <g id="xAxis"></g>
+        <g id="yAxis"></g>
+        <div class="legend3"></div>
+      </svg>
+      <div id="#leyenda" class="legend4">
       </div>
     </div>
 
-    <div class="w3-row-padding w3-center w3-section">
-      <div class="w3-col m3">
-        <img src="images/forest.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Áres forestal" >
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/moviles.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Número de abonados a servicios de telefonía móvil">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/inversion.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Inversión extranjera directa">
-      </div>
-
-      <div class="w3-col m3">
-        <img src="images/ayuda.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Cantidad de ayuda externa">
-      </div>
-
-    </div>
   </div>
 
   <!-- Estilo que sale cuando clickas una foto de las de arriba-->
@@ -383,21 +352,91 @@
 
 
   <script>
-    let linechart = d3.select("#linechart1")
+    let linechart = d3.select("#linechart")
     let valor = "mortalidad"
-    d3.csv("data/data.csv").then(showChart)
 
-    function showChart(data){
-      
-      let bodyHeight = 200
-      let bodyWidth = 400
+    let bodyHeight = 200
+    let bodyWidth = 400
 
-      legendVals = d3.set(data.map( function(d) { return d.pais } ) ).values()
-      var color = d3.scaleOrdinal(d3.schemeCategory10)
+    let titulo = "Mortalidad"
+    let subtitulo = "Fallecidos menores de cinco años por cada mil nacidos vivos"
 
-      var legendVals1 = d3.scaleOrdinal()
-        .domain(legendVals)
-        .range(["#619cff", "#f8766d", "#00ba38"]);
+    d3.csv("data/data.csv").then((data)=>{
+      showChart(data,valor,titulo,subtitulo)
+
+      d3.select("#bot_poblacion").on("click",function(){
+        let valor = "poblacion"
+        let titulo = "Poblacion"
+        let subtitulo = "Habitantes de un pais. Millones de personas"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_mortalidad").on("click",function(){
+        let valor = "mortalidad"
+        let titulo = "Mortalidad"
+        let subtitulo = "Fallecidos menores de cinco años por cada mil nacidos vivos"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_esperanza_vida").on("click",function(){
+        let valor = "esperanza_vida"
+        let titulo = "Esperanza de vida"
+        let subtitulo = "Media de años que espera vivir un niño al nacer"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_fertilidad").on("click",function(){
+        let valor = "fertilidad"
+        let titulo = "Tasa de fertilidad"
+        let subtitulo = "Número de nacimiento por cada mil mujeres"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_ados_fertilidad").on("click",function(){
+        let valor = "ados_fertilidad"
+        let titulo = "Tasa de fertilidad en adolescentes"
+        let subtitulo = "Número de nacimientos por 1000 mujeres entre 15 y 19 años"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_sida").on("click",function(){
+        let valor = "sida"
+        let titulo = "Tasa de enfermos por VIH"
+        let subtitulo = "Seropositivos como porcentaje de la población entre 15 y 49 años"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_forestal").on("click",function(){
+        let valor = "forestal"
+        let titulo = "Área forestal"
+        let subtitulo = "Kilómetros cuadrados"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_movil").on("click",function(){
+        let valor = "movil"
+        let titulo = "Uso de telefonía móvil"
+        let subtitulo = "Abonados a tarifa móvil por cada 100 personas"
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_inversion").on("click",function(){
+        let valor = "inversion"
+        let titulo = "Inversión extranjera directa neta"
+        let subtitulo = "Millones de dólares. Dólares corrientes."
+        showChart(data,valor,titulo,subtitulo)
+      })
+
+      d3.select("#bot_ayudas").on("click",function(){
+        let valor = "ayudas"
+        let titulo = "Ayuda externa"
+        let subtitulo = "Ayudas al desarrollo. Millones de dólares. Dólares corrientes."
+        showChart(data,valor,titulo,subtitulo)
+      })
+    })
+
+
+    function showChart(data,valor,titulo,subtitulo){
       
       data = data.map(d => ({
         pais: d.pais,
@@ -409,34 +448,45 @@
       data_eti = data.filter(function(d){return d.pais == "Ethiopia";})      
       data_ken = data.filter(function(d){return d.pais == "Kenya";})
 
-
-
       let maxValue = d3.max(data,d=>+d.value)
+      let minValue = d3.min(data,d=>+d.value)
 
+      // EJES
       let yScale = d3.scaleLinear()
         .range([bodyHeight,0])
-        .domain([0,maxValue]);
-
-      linechart.append("g")
-        .call(d3.axisLeft(yScale)
-          .ticks(4)
-          .tickFormat(d3.format("")))
+        .domain([minValue,maxValue]);
       
       let xScale = d3.scaleLinear()
-        .domain(d3.extent(data,d=>d.ano))
-        .range([0,bodyWidth]);
+        .range([0,bodyWidth])
+        .domain(d3.extent(data,d=>d.ano));
 
-      linechart.append("g")
-        .attr("transform","translate(0, "+bodyHeight+")")
-        .call(d3.axisBottom(xScale)
-          .tickFormat(d3.format("")))
+      let yAxis = d3.axisLeft(yScale)
+        .ticks(4)
+        .tickFormat(d3.format(""))
+
+      yAxisContainer = d3.select("#yAxis")
+        .style("transform","translate(80px,60px)")
+        .transition()
+        .call(yAxis)
+
+      let xAxis = d3.axisBottom(xScale)
+        .tickFormat(d3.format(""))
+
+      xAxisContainer = d3.select("#xAxis")
+        .attr("transform","translate(80, "+(bodyHeight+60)+")")
+        .transition()
+        .call(xAxis)
         .selectAll("text")
-          .attr("transform", "translate(-7,8) rotate(-35)")
+        .attr("transform", "translate(-7,8) rotate(-35)")
 
+
+      //LÍNEAS
       valueline = d3.line()
         .x(d => xScale(d.ano))
         .y(d => yScale(+d.value))
         .defined(d=> !!+d.value)
+
+      linechart.selectAll("path").transition().remove()
 
       linechart.append("path")
         .datum(data_som)
@@ -469,44 +519,70 @@
         .attr("stroke-linecap", "round")
         .attr("data-legend","Kenia")
 
-      linechart.selectAll("dot")
+
+      let join_dot_som = linechart.selectAll("circle")
         .data(data_som)
-        .enter()
+
+      let new_dot_som = join_dot_som.enter()
         .append("circle")
         .attr("class","dot")
         .attr("fill", "#619cff")
         .attr("stroke", "#619cff")
-        .attr("cx", function(d){ return xScale(d.ano)})
-        .attr("cy", function(d){ return yScale(d.value)})
         .attr("r",3.5)
 
-      linechart.selectAll("dot")
+      join_dot_som.merge(new_dot_som).transition()
+        .attr("cx", function(d){ return xScale(d.ano)})
+        .attr("cy", function(d){ return yScale(d.value)})
+
+      join_dot_som.exit().transition().remove()
+
+
+
+      let join_dot_eti = linechart.selectAll("dot")
         .data(data_eti)
-        .enter()
+
+      let new_dot_eti =join_dot_eti.enter()
         .append("circle")
         .attr("class","dot")
         .attr("fill", "#f8766d")
         .attr("stroke", "#f8766d")
-        .attr("cx", function(d){ return xScale(d.ano)})
-        .attr("cy", function(d){ return yScale(d.value)})
         .attr("r",3.5)
 
-      linechart.selectAll("dot")
+      join_dot_eti.merge(new_dot_eti).transition()
+        .attr("cx", function(d){ return xScale(d.ano)})
+        .attr("cy", function(d){ return yScale(d.value)})
+
+      join_dot_eti.exit().transition().remove()
+
+
+
+      let join_dot_ken = linechart.selectAll("dotken")
         .data(data_ken)
-        .enter()
+
+      let new_dot_ken =join_dot_ken.enter()
         .append("circle")
         .attr("class","dot")
         .attr("fill", "#00ba38")
         .attr("stroke", "#00ba38")
-        .attr("cx", function(d){ return xScale(d.ano)})
-        .attr("cy", function(d){ return yScale(d.value)})
         .attr("r",3.5)
 
-      linechart.exit().transition().remove()
+      join_dot_ken.merge(new_dot_ken).transition()
+        .attr("cx", function(d){ return xScale(d.ano)})
+        .attr("cy", function(d){ return yScale(d.value)})
+
+      join_dot_ken.exit().transition().remove()
 
 
       // LEYENDA DEL LINECHART
-      var svgLegned3 = d3.select('#linechart1').append("svg")
+      
+      legendVals = d3.set(data.map( function(d) { return d.pais } ) ).values()
+      var color = d3.scaleOrdinal(d3.schemeCategory10)
+
+      var legendVals1 = d3.scaleOrdinal()
+        .domain(legendVals)
+        .range(["#619cff", "#f8766d", "#00ba38"]);
+
+      var svgLegned3 = d3.select('#linechart').append("svg")
         .attr("width", d3.select("#svg2").attr("width"))
         .attr("height", d3.select("#svg2").attr("height"))
         .attr("transform", "translate(0,10)")
@@ -548,6 +624,7 @@
         .text("País")
         .attr("font-size","12px")
 
+
       // TITULO DEL LINECHART, EJES Y PIE
 
       var svgTitulo = d3.select('#svg2').append("svg")
@@ -555,22 +632,27 @@
         .attr("height", d3.select("#svg2").attr("height"))
         .attr("transform", "translate(0,10)")
 
+      d3.selectAll(".texto").remove()
+
       svgTitulo.append("g")
         .append("text")
+        .attr("class","texto")
         .attr("x","80")
         .attr("y","25")
-        .text("Población")
+        .text(titulo)
         .attr("font-size","20px")
 
       svgTitulo.append("g")
         .append("text")
+        .attr("class","texto")
         .attr("x","80")
         .attr("y","50")
-        .text("Millones de personas")
+        .text(subtitulo)
         .attr("font-size","15px")
 
       svgTitulo.append("g")
         .append("text")
+        .attr("class","texto")
         .attr("x","355")
         .attr("y","330")
         .text("Fuente: World Bank Data")
@@ -578,26 +660,22 @@
 
       svgTitulo.append("g")
         .append("text")
+        .attr("class","texto")
         .attr("x","30")
         .attr("y","190")
-        .text("Población en millones")
+        .text(titulo)
         .attr("font-size","13px")
-        .attr("transform","translate(-150,260) rotate(-90)")
+        .attr("transform","translate(-160,260) rotate(-90)")
 
       svgTitulo.append("g")
         .append("text")
+        .attr("class","texto")
         .attr("x","280")
         .attr("y","310")
         .text("año")
         .attr("font-size","13px")
     }
-          
-    function changeChart(variable){
-      let valor = variable;
-      d3.csv("data/data.csv").then(showChart)
-    }
-
 
   </script>
-  </body>
+</body>
 </html>
