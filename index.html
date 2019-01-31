@@ -179,19 +179,19 @@
     <div class="w3-center">
       <button class="w3-button" id="bot_poblacion">Población</button>
       <button class="w3-button w3-light-grey" id="bot_mortalidad">Mortalidad</button>
-      <button class="w3-button" id="bot_esperanza_vida">Esperanza de vida</button>
+      <button class="w3-button w3-light-grey" id="bot_esperanza_vida">Esperanza de vida</button>
       <button class="w3-button w3-light-grey" id="bot_fertilidad">Fertilidad</button> <br>
       <button class="w3-button w3-light-grey" id="bot_ados_fertilidad">Fertilidad en adolescentes</button>
-      <button class="w3-button" id="bot_sida">VIH</button>
+      <button class="w3-button w3-light-grey" id="bot_sida">VIH</button>
       <button class="w3-button w3-light-grey" id="bot_forestal">Área forestal</button><br>
       <button class="w3-button w3-light-grey" id="bot_movil">Acceso a telefonía móvil</button> 
-      <button class="w3-button" id="bot_inversion">Inversión extranjera</button>
+      <button class="w3-button w3-light-grey" id="bot_inversion">Inversión extranjera</button>
       <button class="w3-button w3-light-grey" id="bot_ayudas">Ayuda externa</button>
     </div>
 
     <!-- linechart -->
     <div class="w3-center w3-padding-large">
-      <svg id="svg2" height="350" width="600">
+      <svg id="svg2" height="350" width="600" style='background-color: #e0ebf0;'>
         <g id="linechart" style="transform:translate(80px,60px)"></g>
         <g id="xAxis"></g>
         <g id="yAxis"></g>
@@ -637,6 +637,7 @@
         .attr("y","25")
         .text(titulo)
         .attr("font-size","20px")
+        .attr("font-weight","bold")
 
       svgTitulo.append("g")
         .append("text")
