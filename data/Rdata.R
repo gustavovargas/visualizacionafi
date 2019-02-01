@@ -1,10 +1,16 @@
+## PRÁCTICA DE VISUALIZACIÓN Y OPEN DATA
+##
+## Alumno: Gustavo Eduardo Vargas Núñez
+
+# Aquí vamos a obtener los datos con la API del World Bank y a tratarlos para poder
+# integrarlos bien posteriormente con javascript
+
+
 library(WDI)
 library(reshape)
 library(ggplot2)
 library(dplyr)
 theme_set(theme_bw())
-
-# Población Somalia
 
 somalia <- list()
 etiopia <- list()
@@ -34,7 +40,7 @@ somalia <- merge_recurse(somalia)
 etiopia <- merge_recurse(etiopia)
 kenia <- merge_recurse(kenia)
 
-nombres <- c("iso2c","país","ano","poblacion","esperanza_vida",
+nombres <- c("iso2c","pais","ano","poblacion","esperanza_vida",
              "fertilidad","ados_fertilidad","mortalidad","sida",
              "forestal","movil","inversion","ayudas")
 
@@ -42,27 +48,32 @@ names(somalia) <- nombres
 names(etiopia) <- nombres
 names(kenia) <- nombres
 
-etiopia[25,"forestal"] <- etiopia[25,"forestal"]/1000
-etiopia[26,"forestal"] <- etiopia[26,"forestal"]/1000
-etiopia[27,"forestal"] <- etiopia[27,"forestal"]/1000
+etiopia[25,"forestal"] <- etiopia[25,"forestal"]/1000 -20000
+etiopia[26,"forestal"] <- etiopia[26,"forestal"]/1000 -20000
+etiopia[27,"forestal"] <- etiopia[27,"forestal"]/1000 -20000
 
-write.csv(somalia,"somalia.csv")
-write.csv(etiopia,"etiopia.csv")
-write.csv(kenia,"kenia.csv")
+etiopia[26,"inversion"] <- etiopia[25,"inversion"]
+etiopia[27,"inversion"] <- etiopia[25,"inversion"]
 
 data <- rbind(somalia, etiopia)
 data <- rbind(data, kenia)
 
+sum(is.na(data))
+
+#paso algunos datos a millones, para no tener que cambiarlo en el gráfico
+data$poblacion <- data$poblacion/1000000
+data$inversion <- data$inversion/1000000
+data$ayudas <- data$ayudas/1000000
+
 write.csv(data,"data.csv")
 
-# usuarios de internet
-#tengo que escraperar esta tablar
 
 
 ##########################################################
+## VISUALIZACIÓN ESTÁTICA
+##########################################################
 
-
-data %>% ggplot(aes(año,poblacion/1000000,colour= país))+
+data %>% ggplot(aes(año,poblacion,colour= país))+
   geom_point(size=1.7)+
   geom_line(size=.1)+
   labs(title="Población",
